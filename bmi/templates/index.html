@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>BMI Diet Planner</title>
+</head>
+ 
+<body>
+ 
+<h2>BMI Diet & Exercise Planner</h2>
+ 
+<form method="POST">
+ 
+Weight (kg):  
+<input type="number" name="weight" required><br><br>
+ 
+Height (cm):  
+<input type="number" name="height" required><br><br>
+ 
+Age:  
+<input type="number" name="age" required><br><br>
+ 
+Gender:  
+<select name="gender">
+<option>Male</option>
+<option>Female</option>
+</select><br><br>
+ 
+<button type="submit">Generate Plan</button>
+ 
+</form>
+ 
+{% if bmi %}
+<h3>BMI: {{ bmi }}</h3>
+<h3>Category: {{ category }}</h3>
+ 
+<h3>Diet Plan</h3>
+<ul>
+{% for d in diet %}
+<li>{{ d }}</li>
+{% endfor %}
+</ul>
+ 
+<h3>Exercise Plan</h3>
+<ul>
+{% for e in exercise %}
+<li>{{ e }}</li>
+{% endfor %}
+</ul>
+ 
+{% endif %}
+ 
+</body>
+</html>
